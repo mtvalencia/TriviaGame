@@ -20,103 +20,113 @@ var ua10 = a10.value;
 
 //Questions
 var q1 = {
-    question:"Amityville is a city in Indiana.",
+    question: "Amityville is a city in Indiana.",
     answer: "false",
-    noAnswer:true};
+    noAnswer: true
+};
 
 var q2 = {
-    question:"The Lost Boys movie was filmed in Santa Cruz, California.",
-    answer:"true",
-    noAnswer:true};
+    question: "The Lost Boys movie was filmed in Santa Cruz, California.",
+    answer: "true",
+    noAnswer: true
+};
 
-    
+
 var q3 = {
-    question:"Jeffrey Dahmer was a vegetarian.",
-    answer:"false",
-    noAnswer:true};
-    
+    question: "Jeffrey Dahmer was a vegetarian.",
+    answer: "false",
+    noAnswer: true
+};
+
 var q4 = {
-    question:"Ted Bundy escaped from a jail in Colorado.",
-    answer:"true",
-    noAnswer:true};
+    question: "Ted Bundy escaped from a jail in Colorado.",
+    answer: "true",
+    noAnswer: true
+};
 
 var q5 = {
-    question:"Wes Craven directed the movie Poltergeist.",
-    answer:"false",
-    noAnswer:true};
-    
+    question: "Wes Craven directed the movie Poltergeist.",
+    answer: "false",
+    noAnswer: true
+};
+
 var q6 = {
-    question:"The movie, Human Centipede, was based on a true story.",
-    answer:"false",
-    noAnswer:true};
-        
+    question: "The movie, Human Centipede, was based on a true story.",
+    answer: "false",
+    noAnswer: true
+};
+
 var q7 = {
-    question:"You should never feed a Gremlin past midnight.",
-    answer:"true",
-    noAnswer:true};
-        
+    question: "You should never feed a Gremlin past midnight.",
+    answer: "true",
+    noAnswer: true
+};
+
 var q8 = {
-    question:"The ring was originally a Japanese horror film.",
-    answer:"true",
-    noAnswer:true};
-    
+    question: "The ring was originally a Japanese horror film.",
+    answer: "true",
+    noAnswer: true
+};
+
 var q9 = {
-    question:"Jack the Ripper terrorized the city of Dublin, Ireland.",
-    answer:"false",
-    noAnswer:true};
-            
+    question: "Jack the Ripper terrorized the city of Dublin, Ireland.",
+    answer: "false",
+    noAnswer: true
+};
+
 var q10 = {
-    question:"Reagan, from the movie the Exorcist, was possessed by a demon in her magic 8 ball.",
-    answer:"false",
-    noAnswer:true};
+    question: "Reagan, from the movie the Exorcist, was possessed by a demon in her magic 8 ball.",
+    answer: "false",
+    noAnswer: true
+};
 
 // var quizQuestions = [
 //     q1 = {
 //         question:"Amityville is a city in Indiana.",
 //         answer: "false",
 //         noAnswer:true},
-    
+
 //     q2 = {
 //         question:"The Lost Boys movie was filmed in Santa Cruz, California.",
 //         answer:"true",
 //         noAnswer:true},
-    
-        
+
+
 //     q3 = {
 //         question:"Jeffrey Dahmer was a vegetarian.",
 //         answer:"false",
 //         noAnswer:true},
-        
+
 //     q4 = {
 //         question:"Ted Bundy escaped from a jail in Colorado.",
 //         answer:"true",
 //         noAnswer:true},
-    
+
 //     q5 = {
 //         question:"Wes Craven directed the movie Poltergeist.",
 //         answer:"false",
 //         noAnswer:true},
-        
+
 //     q6 = {
 //         question:"The movie, Human Centipede, was based on a true story.",
 //         answer:"false",
 //         noAnswer:true},
-            
+
 //     q7 = {
 //         question:"You should never feed a Gremlin past midnight.",
 //         answer:"true",
 //         noAnswer:true},
-            
+
 //     q8 = {
 //         question:"The ring was originally a Japanese horror film.",
 //         answer:"true",
 //         noAnswer:true},
-        
+
 //     q9 = {
 //         question:"Jack the Ripper terrorized the city of Dublin, Ireland.",
 //         answer:"false",
 //         noAnswer:true},
-                
+
 //     q10 = {
 //         question:"Reagan, from the movie the Exorcist, was possessed by a demon in her magic 8 ball.",
 //         answer:"false",
@@ -137,11 +147,11 @@ var q10 = {
 
 //Need help here! I don't want to write out the display questions
 
-    for ( j = 1; j < 11; j++) {
-        var x = "q"+[j];
-        console.log(x);
-        var results = document.getElementById(x).innerHTML = x.question;
-        console.log(results);
-    }
+for (j = 1; j < 11; j++) {
+    var x = "q" + [j];
+    console.log(x);
+    var results = document.getElementById(x).innerHTML = window[x].question;
+    console.log(results);
+}
 
 //Functions
