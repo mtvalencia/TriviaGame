@@ -1,3 +1,11 @@
+/*
+Need help with the page loading and changing pages(views) based on the game status.
+The order goes 1. start 2. play 3. end.
+I can get the start page(view) to display but I can't change it to play.
+I have a start button on the html page with onlick to start playing the game but, nothing 
+happens when I click the button. I need it to display the "play" div on the html.
+*/
+
 //global variables
 var correctAnswers = 0;
 var incorrectAnswers = 0;
@@ -163,4 +171,4 @@ window.onload = function loadGame() {
         $("#play").hide();
         $("#end").hide();
 }
-}
+};
