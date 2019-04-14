@@ -6,21 +6,22 @@
     <title>Trivia Game - Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <div>
-
         <div>
             <h1>Horror Trivia Extravaganza</h1>
+            <p id="status1"></p>
         </div>
-
-        <div id="main page">
+<!-- 1st screen -->
+        <div id="start">
             <h3>Instructions</h3>
-            <button onclick="gradeQuiz()">Start</button>
+            <button onclick="playGame()">Start</button>
         </div>
-
-        <div id="game page">
-            <h3>Timer</h3>
+<!-- 2nd screen -->
+        <div id="play">
+            <h3><span id="timer"></span></h3>
 
             <h4><span id="q1"></span></h4>
             <select id="a1" name="a1">
@@ -91,16 +92,17 @@
               <option value=true>True</option>
               <option value=false>False</option>
             </select>
-
-        <div id="last page">
+        </div>
+        
+        <div id="end">
             <h3>Message</h3>
-            <p>Correct Answers: </p>
-            <p>Incorrect Answers: </p>
-            <p>Unanswered: </p>
+            <p id="ca">Correct Answers: </p>
+            <p id="ia">Incorrect Answers: </p>
+            <p id="ua">Unanswered: </p>
             <button>Restart</button>
         </div>
 
     </div>
 </body>
-<script src="assets/javascript/app.js"></script>
+<script src="assets/javascript/app.js">window.onload = gamePages();</script>
 </html>
