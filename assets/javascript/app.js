@@ -1,157 +1,230 @@
+/*
+Need help with the page loading and changing pages(views) based on the game status.
+The order goes 1. start 2. play 3. end.
+I can get the start page(view) to display but I can't change it to play.
+I have a start button on the html page with onlick to start playing the game but, nothing 
+happens when I click the button. I need it to display the "play" div on the html.
+*/
+
 //global variables
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unanswered = 0;
-var gameStatus = "Start";
-
-//User answers
-var ua1 = a1.value;
-var ua2 = a2.value;
-var ua3 = a3.value;
-var ua4 = a4.value;
-var ua5 = a5.value;
-var ua6 = a6.value;
-var ua7 = a7.value;
-var ua8 = a8.value;
-var ua9 = a9.value;
-var ua10 = a10.value;
-
-
+var gameStatus = "start";
+console.log(gameStatus);
 
 //Questions
 var q1 = {
-    question: "Amityville is a city in Indiana.",
+    question: "1.    Amityville is a city in Indiana.",
     answer: "false",
     noAnswer: true
 };
 
 var q2 = {
-    question: "The Lost Boys movie was filmed in Santa Cruz, California.",
+    question: "2.    The Lost Boys movie was filmed in Santa Cruz, California.",
     answer: "true",
     noAnswer: true
 };
 
-
 var q3 = {
-    question: "Jeffrey Dahmer was a vegetarian.",
+    question: "3.    Jeffrey Dahmer was a vegetarian.",
     answer: "false",
     noAnswer: true
 };
 
 var q4 = {
-    question: "Ted Bundy escaped from a jail in Colorado.",
+    question: "4.    Ted Bundy escaped from a jail in Colorado.",
     answer: "true",
     noAnswer: true
 };
 
 var q5 = {
-    question: "Wes Craven directed the movie Poltergeist.",
+    question: "5.    Wes Craven directed the movie Poltergeist.",
     answer: "false",
     noAnswer: true
 };
 
 var q6 = {
-    question: "The movie, Human Centipede, was based on a true story.",
+    question: "6.    The movie, Human Centipede, was based on a true story.",
     answer: "false",
     noAnswer: true
 };
 
 var q7 = {
-    question: "You should never feed a Gremlin past midnight.",
+    question: "7.    You should never feed a Gremlin past midnight.",
     answer: "true",
     noAnswer: true
 };
 
 var q8 = {
-    question: "The ring was originally a Japanese horror film.",
+    question: "8.    The ring was originally a Japanese horror film.",
     answer: "true",
     noAnswer: true
 };
 
 var q9 = {
-    question: "Jack the Ripper terrorized the city of Dublin, Ireland.",
+    question: "9.    Jack the Ripper terrorized the city of Dublin, Ireland.",
     answer: "false",
     noAnswer: true
 };
 
 var q10 = {
-    question: "Reagan, from the movie the Exorcist, was possessed by a demon in her magic 8 ball.",
+    question: "10.   Reagan, from the movie the Exorcist, was possessed by a demon in her Chutes and Ladders board game.",
     answer: "false",
     noAnswer: true
 };
 
-// var quizQuestions = [
-//     q1 = {
-//         question:"Amityville is a city in Indiana.",
-//         answer: "false",
-//         noAnswer:true},
-
-//     q2 = {
-//         question:"The Lost Boys movie was filmed in Santa Cruz, California.",
-//         answer:"true",
-//         noAnswer:true},
-
-
-//     q3 = {
-//         question:"Jeffrey Dahmer was a vegetarian.",
-//         answer:"false",
-//         noAnswer:true},
-
-//     q4 = {
-//         question:"Ted Bundy escaped from a jail in Colorado.",
-//         answer:"true",
-//         noAnswer:true},
-
-//     q5 = {
-//         question:"Wes Craven directed the movie Poltergeist.",
-//         answer:"false",
-//         noAnswer:true},
-
-//     q6 = {
-//         question:"The movie, Human Centipede, was based on a true story.",
-//         answer:"false",
-//         noAnswer:true},
-
-//     q7 = {
-//         question:"You should never feed a Gremlin past midnight.",
-//         answer:"true",
-//         noAnswer:true},
-
-//     q8 = {
-//         question:"The ring was originally a Japanese horror film.",
-//         answer:"true",
-//         noAnswer:true},
-
-//     q9 = {
-//         question:"Jack the Ripper terrorized the city of Dublin, Ireland.",
-//         answer:"false",
-//         noAnswer:true},
-
-//     q10 = {
-//         question:"Reagan, from the movie the Exorcist, was possessed by a demon in her magic 8 ball.",
-//         answer:"false",
-//         noAnswer:true}
-//     ];
-
 //Display questions
-// document.getElementById("q1").innerHTML = q1.question;
-// document.getElementById("q2").innerHTML = q2.question;
-// document.getElementById("q3").innerHTML = q3.question;
-// document.getElementById("q4").innerHTML = q4.question;
-// document.getElementById("q5").innerHTML = q5.question;
-// document.getElementById("q6").innerHTML = q6.question;
-// document.getElementById("q7").innerHTML = q7.question;
-// document.getElementById("q8").innerHTML = q8.question;
-// document.getElementById("q9").innerHTML = q9.question;
-// document.getElementById("q10").innerHTML = q10.question;
-
-//Need help here! I don't want to write out the display questions
-
 for (j = 1; j < 11; j++) {
     var x = "q" + [j];
-    console.log(x);
-    var results = document.getElementById(x).innerHTML = window[x].question;
-    console.log(results);
+    var seeQuestions = document.getElementById(x).innerHTML = window[x].question;
 }
 
 //Functions
+function gamePages() {
+    if (gameStatus === "start") {
+        $('#start').show();
+        $("#play").hide();
+        $("#end").hide();
+    } else if (gameStatus === "play") {
+        $('#play').show();
+        $("#start").hide();
+        $("#end").hide();
+        startTimer();
+    } else if (gameStatus === "end") {
+        $('#end').show();
+        $("#start").hide();
+        $("#play").hide();
+    }
+}
+
+function grade() {
+    if (q1.answer === a1.value) {
+        correctAnswers += 1;
+    } else if (q1.answer !== a1.value && a1.value !== "") {
+        incorrectAnswers += 1;
+    } else {
+        unanswered += 1;
+    }
+
+    if (q2.answer === a2.value) {
+        correctAnswers += 1;
+    } else if (q2.answer !== a2.value && a2.value !== "") {
+        incorrectAnswers += 1;
+    } else {
+        unanswered += 1;
+    }
+
+    if (q3.answer === a3.value) {
+        correctAnswers += 1;
+    } else if (q3.answer !== a3.value && a3.value !== "") {
+        incorrectAnswers += 1;
+    } else {
+        unanswered += 1;
+    }
+
+    if (q4.answer === a4.value) {
+        correctAnswers += 1;
+    } else if (q4.answer !== a4.value && a4.value !== "") {
+        incorrectAnswers += 1;
+    } else {
+        unanswered += 1;
+    }
+
+    if (q5.answer === a5.value) {
+        correctAnswers += 1;
+    } else if (q5.answer !== a5.value && a5.value !== "") {
+        incorrectAnswers += 1;
+    } else {
+        unanswered += 1;
+    }
+
+    if (q6.answer === a6.value) {
+        correctAnswers += 1;
+    } else if (q6.answer !== a6.value && a6.value !== "") {
+        incorrectAnswers += 1;
+    } else {
+        unanswered += 1;
+    }
+
+    if (q7.answer === a7.value) {
+        correctAnswers += 1;
+    } else if (q7.answer !== a7.value && a7.value !== "") {
+        incorrectAnswers += 1;
+    } else {
+        unanswered += 1;
+    }
+
+    if (q8.answer === a8.value) {
+        correctAnswers += 1;
+    } else if (q8.answer !== a8.value && a8.value !== "") {
+        incorrectAnswers += 1;
+    } else {
+        unanswered += 1;
+    }
+
+    if (q9.answer === a9.value) {
+        correctAnswers += 1;
+    } else if (q9.answer !== a9.value && a9.value !== "") {
+        incorrectAnswers += 1;
+    } else {
+        unanswered += 1;
+    }
+
+    if (q10.answer === a10.value) {
+        correctAnswers += 1;
+    } else if (q10.answer !== a10.value && a10.value !== "") {
+        incorrectAnswers += 1;
+    } else {
+        unanswered += 1;
+    }
+
+    document.getElementById("ca").innerHTML = "Correct Answers: " + correctAnswers;
+    document.getElementById("ia").innerHTML = "Incorrect Answers: " + incorrectAnswers;
+    document.getElementById("ua").innerHTML = "Unanswered: " + unanswered;
+}
+
+function playGame() {
+    gameStatus = 'play';
+    gamePages();
+    startTimer();
+
+}
+
+function startTimer() {
+    var timeLeft = 10;
+    var gameTimer = setInterval(function () {
+        document.getElementById("timer").innerHTML = "Time remaining: " + timeLeft;
+        timeLeft -= 1;
+        if (timeLeft <= -1) {
+            clearInterval(gameTimer);
+            gameStatus = "end";
+            grade();
+            gamePages();
+        }
+    }, 1000);
+}
+
+function loadGame() {
+    if (gameStatus === "start") {
+        $('#start').show();
+        $("#play").hide();
+        $("#end").hide();
+    };
+}
+
+window.onload = function load() {
+    loadGame();
+
+    $('#btnStart').click(function () {
+        playGame();
+    });
+
+    $('#btnRestart').click(function () {
+        gameStatus = 'start';
+        correctAnswers = 0;
+        incorrectAnswers = 0;
+        unanswered = 0;
+        loadGame();
+    });
+};
