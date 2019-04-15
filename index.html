@@ -5,22 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Trivia Game - Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-    <div>
+    <div class="bkh container card">
         <div>
             <h1>Horror Trivia Extravaganza</h1>
-            <p id="status1"></p>
+            <p>(Music is playing!)</p>
         </div>
 <!-- 1st page -->
-        <div id="start">
-            <h3>Instructions</h3>
-            <button id="btnStart">Start</button>
+        <div class="card-body" id="start">
+            <h3>To play, click on the start button.<br>Answer 10 true/false trivia questions in 30 seconds.</h3>
+            <button id="btnStart" class="btn btn-danger">Start</button>
         </div>
 <!-- 2nd page -->
-        <div id="play">
+        <div class="card-body" id="play">
             <h3><span id="timer"></span></h3>
 
             <h4><span id="q1"></span></h4>
@@ -96,15 +97,21 @@
 
 <!-- 3rd page -->
         
-        <div id="end">
-            <h3>Message</h3>
-            <p id="ca">Correct Answers: </p>
-            <p id="ia">Incorrect Answers: </p>
-            <p id="ua">Unanswered: </p>
-            <button id="btnRestart">Restart</button>
+        <div class="card-body" id="end">
+            <h4>How did you do? You can improve your score.<br>Click on the restart button to play again.</h4>
+            <h5 id="ca">Correct Answers: </h5>
+            <h5 id="ia">Incorrect Answers: </h5>
+            <h5 id="ua">Unanswered: </h5>
+            <br>
+            <button class="btn btn-danger" id="btnRestart">Restart</button>
+            <br>
+            <br>
+            <img src="assets/images/finalscreem.gif" alt="lady screaming" width=100% height=100%/>
         </div>
 
     </div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="assets/javascript/app.js"></script>
 </html>

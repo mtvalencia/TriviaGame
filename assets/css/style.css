@@ -1,0 +1,23 @@
+body {
+    background-image: url(../images/darkForestBk.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+select, option {
+    border: 2px solid red;
+    font-weight: bolder;
+}
+
+.bkh {
+    min-height: 700px;
+    max-height: 100%;
+    opacity: 0.8;
+    margin-top: 20px;
+    z-index: 1;
+}
+
+#timer {
+    font-weight: bolder;
+    color: red;
+}

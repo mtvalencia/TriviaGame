@@ -1,17 +1,8 @@
-/*
-Need help with the page loading and changing pages(views) based on the game status.
-The order goes 1. start 2. play 3. end.
-I can get the start page(view) to display but I can't change it to play.
-I have a start button on the html page with onlick to start playing the game but, nothing 
-happens when I click the button. I need it to display the "play" div on the html.
-*/
-
 //global variables
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unanswered = 0;
 var gameStatus = "start";
-console.log(gameStatus);
 
 //Questions
 var q1 = {
@@ -179,20 +170,29 @@ function grade() {
         unanswered += 1;
     }
 
-    document.getElementById("ca").innerHTML = "Correct Answers: " + correctAnswers;
-    document.getElementById("ia").innerHTML = "Incorrect Answers: " + incorrectAnswers;
-    document.getElementById("ua").innerHTML = "Unanswered: " + unanswered;
+    document.getElementById("ca").innerHTML = "Correct Answers: " + (correctAnswers * 0.5);
+    document.getElementById("ia").innerHTML = "Incorrect Answers: " + (incorrectAnswers * 0.5);
+    document.getElementById("ua").innerHTML = "Unanswered: " + (unanswered * 0.5);
 }
 
 function playGame() {
     gameStatus = 'play';
     gamePages();
     startTimer();
+}
 
+function playSound2() {
+    var audio2 = new Audio("assets/sounds/Scream.mp3");
+    audio2.play();
+}
+
+function playSound1() {
+    var audio1 = new Audio("assets/sounds/answeringQ.mp3");
+    audio1.play();
 }
 
 function startTimer() {
-    var timeLeft = 10;
+    var timeLeft = 30;
     var gameTimer = setInterval(function () {
         document.getElementById("timer").innerHTML = "Time remaining: " + timeLeft;
         timeLeft -= 1;
@@ -201,6 +201,7 @@ function startTimer() {
             gameStatus = "end";
             grade();
             gamePages();
+            playSound2();
         }
     }, 1000);
 }
@@ -218,6 +219,7 @@ window.onload = function load() {
 
     $('#btnStart').click(function () {
         playGame();
+        playSound1();
     });
 
     $('#btnRestart').click(function () {
