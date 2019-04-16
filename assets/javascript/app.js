@@ -198,10 +198,10 @@ function startTimer() {
         timeLeft -= 1;
         if (timeLeft <= -1) {
             clearInterval(gameTimer);
+            playSound2();
             gameStatus = "end";
             grade();
             gamePages();
-            playSound2();
         }
     }, 1000);
 }
